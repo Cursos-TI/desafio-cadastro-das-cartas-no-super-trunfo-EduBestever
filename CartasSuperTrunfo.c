@@ -3,7 +3,7 @@
 int main(){
     char estado, estado2;
     char cidade, cidade2;
-    int populacao, populacao2;
+    unsigned long populacao, populacao2;
     float area, area2;
     float pib, pib2;
     int pontos, pontos2;
@@ -43,9 +43,20 @@ int main(){
     // PIB PER CAPITA //        
     float pibpercapita = pib / populacao;
     float pibpercapita2 = pib2 / populacao2;
-
+//COMPARACÇÃO DE DADOS//
+    unsigned comp_popu = (populacao > populacao2);
+    unsigned comp_area = (area > area2);
+    unsigned comp_pib = (pib > pib2);
+    unsigned comp_pontos = (pontos > pontos2);
+    unsigned comp_densidade = (densidade > densidade2);
+    unsigned comp_pibpercapita = (pibpercapita > pibpercapita2);
+    unsigned vencedor1 = (populacao+area+pib+pontos+densidade+pibpercapita);
+    unsigned vencedor2 = (populacao2+area2+pib2+pontos2+densidade2+pibpercapita2);
+   
     // IMPRIMIR //
+
     // CARTA 01 //
+    printf("-------------------------\n");
     printf("Carta 1\n");
     printf("Estado: %c%c\n", estado, cidade);
     printf("Populacao: %d\n", populacao);
@@ -55,6 +66,7 @@ int main(){
     printf("Densidade da carta 1: %.2f Hab/km\n", densidade);
     printf("PIB per capita da carta 1: %.2f Reais\n", pibpercapita);
     //CARTA 2// 
+    printf("-------------------------\n");
     printf("Carta 2\n");
     printf("Estado: %c%c\n", estado2, cidade2);
     printf("Populacao: %d\n", populacao2);
@@ -63,6 +75,20 @@ int main(){
     printf("Pontos turisticos: %d\n", pontos2);
     printf("Densidade da carta 2: %.2f Hab/km\n", densidade2);
     printf("PIB per capita da carta 2: %.2f Reais\n", pibpercapita2);
+    // IMPRIMIR COMPARACAO //
+    printf("-------------------------\n");
+    printf("Comparacao de dados:\n");
+    printf("Populacao: %s\n", comp_popu ? "Carta 1" : "Carta 2"); // V : F
+    printf("Area: %s\n", comp_area ? "Carta 1" : "Carta 2");
+    printf("PIB: %s\n", comp_pib ? "Carta 1" : "Carta 2");
+    printf("Pontos turisticos: %s\n", comp_pontos ? "Carta 1" : "Carta 2");
+    printf("Densidade: %s\n", comp_densidade ? "Carta 1" : "Carta 2");
+    printf("PIB per capita: %s\n", comp_pibpercapita ? "Carta 1" : "Carta 2");
+    printf("Vencedor: %s\n", vencedor1 > vencedor2 ? "Carta 1" : "Carta 2");
+    
     return 0;
+
+
+
 
 }
